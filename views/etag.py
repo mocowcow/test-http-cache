@@ -15,10 +15,7 @@ def get_time() -> Response:
     if data_api.is_etag_match(etag):
         return make_response("", 304)
 
-    data = {
-        "resp count": f"這是第{data_api.count()}次回應",
-        "data": data_api.shared_data,
-    }
+    data = data_api.get()
     resp = make_response(data, 200)
     resp.headers["Cache-Control"] = "no-cache"
     resp.headers["Etag"] = data_api.etag

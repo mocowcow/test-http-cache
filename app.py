@@ -1,8 +1,9 @@
+
+from flask import Flask
+
 from views import last_modified
 from views import etag
 from views import update
-
-from flask import Flask
 
 
 app = Flask(__name__)
