@@ -23,6 +23,14 @@ def is_modified_since(time: str) -> bool:
     return time == last_modified
 
 
+def is_etag_match(e: str) -> bool:
+    if etag is None:
+        return False
+    print("客戶端 etag :", e)
+    print("伺服器 etag :", etag)
+    return e == etag
+
+
 def get() -> dict:
     data = {
         "resp count": f"這是第 {count()} 次伺服器回應",
